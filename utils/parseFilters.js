@@ -1,13 +1,13 @@
 /**
- *@param {Object} qFilter Request query filter object to parse filters
+ *@param {Object} filters Request query filter object to parse filters
  *@returns Filter object that contains related array
  */
-const parseFilters = (qFilter) => {
-  if (!qFilter) {
+const parseFilters = (filters) => {
+  if (!filters) {
     return null;
   }
 
-  return query.filter.split(";").reduce((obj, filt) => {
+  return filters.split(";").reduce((obj, filt) => {
     // Destruct prop and value
     const [field, value] = filt.split(":");
 
