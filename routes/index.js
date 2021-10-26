@@ -6,7 +6,13 @@ const { redisKeys } = require("../data");
 const { get } = require("../redis/client");
 
 // Utils to provide filter object and filter data by provided object
-const { parseFilters, filterProducts, orderProducts } = require("../utils");
+const {
+  parseFilters,
+  filterProducts,
+  orderProducts,
+  searchProducts,
+  prepareFrontFilters,
+} = require("../utils");
 
 /* GET
  * Query can contains "filter", "search", "order"
@@ -14,8 +20,8 @@ const { parseFilters, filterProducts, orderProducts } = require("../utils");
  * order => "asc:price", "asc:date", "desc:price", "desc:date"
  */
 router.get("/", async (req, res) => {
-  const filters = parseFilters(req.query.filter);
-  const order = req.query.order;
+  const { filter, order, search } = req.query;
+  const filters = parseFilters(filter);
 
   try {
     const response = await get(redisKeys.products);
@@ -28,8 +34,24 @@ router.get("/", async (req, res) => {
      */
     const filteredProds = filterProducts(products, filters);
     const orderedProds = orderProducts(filteredProds, order);
+    const searchedProds = searchProducts(orderedProds, search);
 
-    res.json(orderedProds);
+    /**
+     * Prepare filters that will be use in front
+     * This needs to be applied after product data manipulation to
+     * calculate count, colors, brand.
+     */
+    const feFilters = prepareFrontFilters(searchedProds);
+
+    /**
+     * Response contains
+     * Filters => To filter product
+     * Products => To list product
+     */
+    res.json({
+      filters: feFilters,
+      products: searchedProds,
+    });
   } catch (err) {
     res.status(400).json({ message: "Something gone wrong!" });
   }
