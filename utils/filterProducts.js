@@ -3,6 +3,10 @@
  * @param {Object} filters Object that return from parseFilters
  */
 const filterProducts = (products, filters) => {
+  if (!filters) {
+    return products;
+  }
+
   return products.filter((prod) => {
     // Initial true to check all filters return true;
     let checked = true;
