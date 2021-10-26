@@ -1,19 +1,34 @@
 const express = require("express");
 const router = express.Router();
 
+// Redis
+const { redisKeys } = require("../data");
 const { get } = require("../redis/client");
 
-/* GET home page. */
+// Utils to provide filter object and filter data by provided object
+const parseFilters = require("../utils/parseFilters");
+const filterProducts = require("../utils/filterProducts");
+
+/* GET
+ * Query can contains "filter", "search", "order"
+ * filter => "brand", "color"
+ * order => "asc:price", "asc:date", "desc:price", "desc:date"
+ */
 router.get("/", async (req, res) => {
-  console.log(req.query);
+  const filters = parseFilters(req.query.filter);
 
-  const products = await get("products").catch((err) => {
-    if (err) {
-      console.log(error);
+  try {
+    const response = await get(redisKeys.products);
+    const products = await JSON.parse(response);
+
+    if (!filters) {
+      res.json(products);
     }
-  });
 
-  res.json(JSON.parse(products));
+    res.json(filterProducts(products, filters));
+  } catch (err) {
+    res.status(400).json({ message: "Something gone wrong!" });
+  }
 });
 
 module.exports = router;
