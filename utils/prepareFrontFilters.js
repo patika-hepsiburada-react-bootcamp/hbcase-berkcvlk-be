@@ -39,7 +39,7 @@ const prepareFrontFilters = (products) => {
     },
     {
       title: "Sıralama",
-      items: [
+      items: products.length && [
         { text: "En Düşük Fiyat", value: "asc:price" },
         { text: "En Yüksek Fiyat", value: "desc:price" },
         { text: "En Yeniler (AZ)", value: "asc:date" },
