@@ -12,6 +12,7 @@ const set = promisify(client.set).bind(client);
 // Load data when server is up
 const loadData = async () => {
   await set(redisKeys.products, JSON.stringify(products));
+  await set(redisKeys.basket, JSON.stringify({ items: [] }));
 };
 
 loadData();

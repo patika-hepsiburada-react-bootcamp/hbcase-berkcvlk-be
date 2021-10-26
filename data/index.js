@@ -5,6 +5,7 @@ const products = require("./products");
  */
 const redisKeys = {
   products: "products",
+  basket: "basket",
 };
 
 module.exports = { redisKeys, products };
