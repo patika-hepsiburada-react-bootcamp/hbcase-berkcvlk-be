@@ -14,13 +14,16 @@ const {
   prepareFrontFilters,
 } = require("../utils");
 
+// Constants
+const PRODUCT_PER_PAGE = 12;
+
 /* GET
  * Query can contains "filter", "search", "order"
  * filter => "brand", "color"
  * order => "asc:price", "asc:date", "desc:price", "desc:date"
  */
 router.get("/", async (req, res) => {
-  const { filter, order, search } = req.query;
+  const { filter, order, search, page } = req.query;
   const filters = parseFilters(filter);
 
   try {
@@ -44,13 +47,22 @@ router.get("/", async (req, res) => {
     const feFilters = prepareFrontFilters(searchedProds);
 
     /**
+     * Pagination
+     */
+    const startIn = (page - 1) * PRODUCT_PER_PAGE;
+    const endIn = page * PRODUCT_PER_PAGE;
+    const paginatedProds = searchedProds.slice(startIn, endIn);
+
+    /**
      * Response contains
      * Filters => To filter product
      * Products => To list product
      */
     res.json({
       filters: feFilters,
-      products: searchedProds,
+      currentPage: +page,
+      prodPerPage: PRODUCT_PER_PAGE,
+      products: paginatedProds,
     });
   } catch (err) {
     res.status(400).json({ message: "Something gone wrong!" });
