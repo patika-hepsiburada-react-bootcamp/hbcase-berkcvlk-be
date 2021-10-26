@@ -12,6 +12,7 @@ const prepareFrontFilters = (products) => {
   const destructVariantsBy = (field) => {
     return (
       products
+
         // Destruct all different by field
         .reduce((arr, { [field]: { text, value } }) => {
           if (arr.findIndex((filt) => filt.value === value) !== -1) {
@@ -20,6 +21,7 @@ const prepareFrontFilters = (products) => {
 
           return [...arr, { text, value }];
         }, [])
+
         // Calculate product count in this filter
         .map((filt) => ({
           ...filt,
@@ -33,6 +35,7 @@ const prepareFrontFilters = (products) => {
     {
       title: "Renk",
       items: destructVariantsBy("color"),
+      multipleChoice: true,
     },
     {
       title: "Sıralama",
@@ -46,6 +49,7 @@ const prepareFrontFilters = (products) => {
     {
       title: "Marka",
       items: destructVariantsBy("brand"),
+      multipleChoice: true,
     },
   ];
 };
