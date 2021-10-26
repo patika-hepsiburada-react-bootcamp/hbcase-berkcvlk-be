@@ -5,7 +5,7 @@
  */
 const prepareFrontFilters = (products) => {
   /**
-   *
+   * Destructur all variants according the field
    * @param {string} field Which field needs to desctruct to the variants
    * @returns Variants according to given field
    */
