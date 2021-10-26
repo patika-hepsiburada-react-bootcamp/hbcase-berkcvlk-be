@@ -6,9 +6,7 @@ const { redisKeys } = require("../data");
 const { get } = require("../redis/client");
 
 // Utils to provide filter object and filter data by provided object
-const parseFilters = require("../utils/parseFilters");
-const filterProducts = require("../utils/filterProducts");
-const orderProducts = require("../utils/orderProducts");
+const { parseFilters, filterProducts, orderProducts } = require("../utils");
 
 /* GET
  * Query can contains "filter", "search", "order"
@@ -23,6 +21,11 @@ router.get("/", async (req, res) => {
     const response = await get(redisKeys.products);
     const products = await JSON.parse(response);
 
+    /**
+     * Manipulate data by query params
+     * Manipulating order can be change. All utils will return previous
+     * product data if there is no valid/exist parameter
+     */
     const filteredProds = filterProducts(products, filters);
     const orderedProds = orderProducts(filteredProds, order);
 
