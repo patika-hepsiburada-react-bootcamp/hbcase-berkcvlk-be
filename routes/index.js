@@ -40,18 +40,18 @@ router.get("/", async (req, res) => {
     const searchedProds = searchProducts(orderedProds, search);
 
     /**
-     * Prepare filters that will be use in front
-     * This needs to be applied after product data manipulation to
-     * calculate count, colors, brand.
-     */
-    const feFilters = prepareFrontFilters(searchedProds);
-
-    /**
      * Pagination
      */
     const startIn = (page - 1) * PRODUCT_PER_PAGE;
     const endIn = page * PRODUCT_PER_PAGE;
     const paginatedProds = searchedProds.slice(startIn, endIn);
+
+    /**
+     * Prepare filters that will be use in front
+     * This needs to be applied after product data manipulation to
+     * calculate count, colors, brand.
+     */
+    const feFilters = prepareFrontFilters(paginatedProds);
 
     /**
      * Response contains
