@@ -6,7 +6,9 @@ const searchProducts = (products, key) => {
     return products;
   }
 
-  return products.filter((prod) => prod.title.toLowerCase().includes(key));
+  return products.filter((prod) =>
+    prod.title.toLowerCase().includes(key.toLowerCase())
+  );
 };
 
 module.exports = searchProducts;
