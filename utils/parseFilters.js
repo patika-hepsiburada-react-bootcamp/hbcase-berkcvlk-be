@@ -8,13 +8,11 @@ const parseFilters = (filters) => {
   }
 
   return filters.split(";").reduce((obj, filt) => {
-    // Destruct prop and value
     const [field, value] = filt.split(":");
 
     // Value may have multiple, so split to array
     const valueArr = value.split(",");
 
-    // Set related obj field
     return {
       ...obj,
       [field]: [...valueArr],
