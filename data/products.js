@@ -1,3 +1,6 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 /**
  * Dummy Products
  */
@@ -15,6 +18,7 @@ const products = [
       text: "Gümüş",
       value: "gumus",
     },
+    image: `${process.env.NODE_SERVER_URL}/images/prod3.png`,
     createdAt: "2021-01-12T00:00:00+03:00",
   },
   {
@@ -30,6 +34,7 @@ const products = [
       text: "Kırmızı",
       value: "kirmizi",
     },
+    image: `${process.env.NODE_SERVER_URL}/images/prod1.png`,
     createdAt: "2021-02-12T00:00:00+03:00",
   },
   {
@@ -45,6 +50,7 @@ const products = [
       text: "Gümüş",
       value: "gumus",
     },
+    image: `${process.env.NODE_SERVER_URL}/images/prod2.png`,
     createdAt: "2021-03-12T00:00:00+03:00",
   },
   {
@@ -60,6 +66,7 @@ const products = [
       text: "Mavi",
       value: "mavi",
     },
+    image: `${process.env.NODE_SERVER_URL}/images/prod4.png`,
     createdAt: "2021-01-12T00:00:00+03:00",
   },
 ];
