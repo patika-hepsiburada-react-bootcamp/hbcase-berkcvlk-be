@@ -66,4 +66,34 @@ router.post("/", async (req, res) => {
   }
 });
 
+/**
+ * DELETE
+ * Remove item from the basket
+ */
+router.delete("/", async (req, res) => {
+  const productId = +req.body.productId;
+
+  try {
+    const basketRes = await get(redisKeys.basket);
+    const basket = await JSON.parse(basketRes);
+
+    // Find item index in the basket
+    const itemIndex = basket.items.findIndex((i) => i.productId === productId);
+
+    if (itemIndex === -1) {
+      throw new Error("Item not found!");
+    }
+
+    // Update basket in memory
+    const updatedItems = basket.items.filter((_, index) => index !== itemIndex);
+    await set(redisKeys.basket, JSON.stringify({ items: updatedItems }));
+
+    res.json({ items: updatedItems });
+  } catch (err) {
+    res.status(400).json({
+      message: err.message,
+    });
+  }
+});
+
 module.exports = router;
