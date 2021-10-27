@@ -24,15 +24,17 @@ const prepareFrontFilters = (prods) => {
             return arr;
           }
 
-          return [...arr, { text, value }];
-        }, [])
+          return [
+            ...arr,
+            {
+              text,
+              value,
 
-        // Calculate product count in this filter
-        .map((filt) => ({
-          ...filt,
-          count: prods.filter((prod) => filt.value === prod[field].value)
-            .length,
-        }))
+              // Calculate product count in this filter
+              count: prods.filter((prod) => value === prod[field].value).length,
+            },
+          ];
+        }, [])
     );
   };
 
