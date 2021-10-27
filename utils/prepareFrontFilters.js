@@ -39,11 +39,13 @@ const prepareFrontFilters = (prods) => {
   return [
     {
       title: "Renk",
+      type: "color",
       items: destructVariantsBy("color"),
       multipleChoice: true,
     },
     {
       title: "Sıralama",
+      type: "order",
       items: [
         { text: "En Düşük Fiyat", value: "asc:price" },
         { text: "En Yüksek Fiyat", value: "desc:price" },
@@ -53,6 +55,7 @@ const prepareFrontFilters = (prods) => {
     },
     {
       title: "Marka",
+      type: "brand",
       items: destructVariantsBy("brand"),
       multipleChoice: true,
     },
