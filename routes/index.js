@@ -51,7 +51,7 @@ router.get("/", async (req, res) => {
      * This needs to be applied after product data manipulation to
      * calculate count, colors, brand.
      */
-    const feFilters = prepareFrontFilters(paginatedProds);
+    const feFilters = prepareFrontFilters(searchedProds);
 
     /**
      * Response contains
@@ -65,7 +65,7 @@ router.get("/", async (req, res) => {
       filters: feFilters,
       currentPage: +page,
       prodPerPage: PRODUCT_PER_PAGE,
-      totalProdCount: paginatedProds.length,
+      totalProdCount: searchedProds.length,
       products: paginatedProds,
     });
   } catch (err) {
