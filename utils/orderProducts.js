@@ -11,7 +11,13 @@ const orderProducts = (products, order) => {
   const [token, by] = order.split(":");
 
   const callbacks = {
-    price: (prod) => prod["price"],
+    price: (prod) => {
+      if (prod["discountRate"]) {
+        return prod["price"] * ((100 - prod["discountRate"]) / 100);
+      }
+
+      return prod["price"];
+    },
     date: (prod) => new Date(prod["createdAt"]).getTime(),
   };
 
