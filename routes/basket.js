@@ -54,7 +54,12 @@ router.post("/", async (req, res) => {
     }
 
     // Update basket in memory
-    basket.items.push({ productId: product.id });
+    basket.items.unshift({
+      productId: product.id,
+      image: product.image,
+      title: product.title,
+    });
+
     await set(redisKeys.basket, JSON.stringify(basket));
 
     // Return new basket items to update front
