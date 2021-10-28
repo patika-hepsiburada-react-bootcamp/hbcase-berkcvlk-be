@@ -51,7 +51,7 @@ router.get("/", async (req, res) => {
      * This needs to be applied after product data manipulation to
      * calculate count, colors, brand.
      */
-    const feFilters = prepareFrontFilters(searchedProds);
+    const feFilters = prepareFrontFilters(products, searchedProds);
 
     /**
      * Response contains

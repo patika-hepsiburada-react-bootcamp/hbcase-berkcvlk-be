@@ -1,11 +1,9 @@
-const { products } = require("../data");
-
 /**
  * Filters
  * Prepare all filters that will be use in front
  * Variants desctructing from dummy product data
  */
-const prepareFrontFilters = (prods) => {
+const prepareFrontFilters = (allProducts, filteredProducts) => {
   /**
    * Destructur all variants according the field
    * @param {string} field Which field needs to desctruct to the variants
@@ -16,7 +14,7 @@ const prepareFrontFilters = (prods) => {
       // Use all product data to desctruct variants
       // Counts of variant will calculate according to given product
       // data to serve all counts
-      products
+      allProducts
 
         // Destruct all different by field
         .reduce((arr, { [field]: { text, value } }) => {
@@ -30,8 +28,9 @@ const prepareFrontFilters = (prods) => {
         // Calculate product count in this filter
         .map((filt) => ({
           ...filt,
-          count: prods.filter((prod) => filt.value === prod[field].value)
-            .length,
+          count: filteredProducts.filter(
+            (prod) => filt.value === prod[field].value
+          ).length,
         }))
     );
   };
