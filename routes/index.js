@@ -55,13 +55,17 @@ router.get("/", async (req, res) => {
 
     /**
      * Response contains
-     * Filters => To filter product
-     * Products => To list product
+     * Filters => to filter product
+     * Products => to list product
+     * Current page => for pagination
+     * Product per page => for pagination
+     * Total Production Count => for pagination
      */
     res.json({
       filters: feFilters,
       currentPage: +page,
       prodPerPage: PRODUCT_PER_PAGE,
+      totalProdCount: paginatedProds.length,
       products: paginatedProds,
     });
   } catch (err) {
