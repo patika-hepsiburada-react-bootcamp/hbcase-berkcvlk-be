@@ -36,15 +36,7 @@ router.get("/", async (req, res) => {
      * product data if there is no valid/exist parameter
      */
     const filteredProds = filterProducts(products, filters);
-    const orderedProds = orderProducts(filteredProds, order);
-    const searchedProds = searchProducts(orderedProds, search);
-
-    /**
-     * Pagination
-     */
-    const startIn = (page - 1) * PRODUCT_PER_PAGE;
-    const endIn = page * PRODUCT_PER_PAGE;
-    const paginatedProds = searchedProds.slice(startIn, endIn);
+    const searchedProds = searchProducts(filteredProds, search);
 
     /**
      * Prepare filters that will be use in front
@@ -52,6 +44,18 @@ router.get("/", async (req, res) => {
      * calculate count, colors, brand.
      */
     const feFilters = prepareFrontFilters(products, searchedProds);
+
+    /**
+     * At last, order all products
+     */
+    const orderedProds = orderProducts(searchedProds, order);
+
+    /**
+     * Pagination
+     */
+    const startIn = (page - 1) * PRODUCT_PER_PAGE;
+    const endIn = page * PRODUCT_PER_PAGE;
+    const paginatedProds = orderedProds.slice(startIn, endIn);
 
     /**
      * Response contains
@@ -65,7 +69,7 @@ router.get("/", async (req, res) => {
       filters: feFilters,
       currentPage: +page,
       prodPerPage: PRODUCT_PER_PAGE,
-      totalProdCount: searchedProds.length,
+      totalProdCount: orderedProds.length,
       products: paginatedProds,
     });
   } catch (err) {
