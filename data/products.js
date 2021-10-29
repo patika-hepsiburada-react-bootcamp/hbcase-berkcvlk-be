@@ -1,6 +1,3 @@
-const dotenv = require("dotenv");
-dotenv.config();
-
 /**
  * Dummy Products
  */
@@ -18,7 +15,7 @@ const products = [
       text: "Gümüş",
       value: "gumus",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/prod3.png`,
+    image: `images/prod3.png`,
     createdAt: "2021-01-12T00:00:00+03:00",
   },
   {
@@ -35,7 +32,7 @@ const products = [
       text: "Kırmızı",
       value: "kirmizi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung1.jpeg`,
+    image: `images/samsung1.jpeg`,
     createdAt: "2021-02-12T00:00:00+03:00",
   },
   {
@@ -51,7 +48,7 @@ const products = [
       text: "Gümüş",
       value: "gumus",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung2.jpeg`,
+    image: `images/samsung2.jpeg`,
     createdAt: "2021-03-12T00:00:00+03:00",
   },
   {
@@ -67,7 +64,7 @@ const products = [
       text: "Mavi",
       value: "mavi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/prod4.png`,
+    image: `images/prod4.png`,
     createdAt: "2021-01-12T00:00:00+03:00",
   },
   {
@@ -83,7 +80,7 @@ const products = [
       text: "Beyaz",
       value: "beyaz",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/huawei1.jpeg`,
+    image: `images/huawei1.jpeg`,
     createdAt: "2021-02-23T00:00:00+03:00",
   },
   {
@@ -100,7 +97,7 @@ const products = [
       text: "Mavi",
       value: "mavi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung1.jpeg`,
+    image: `images/samsung1.jpeg`,
     createdAt: "2021-03-23T00:00:00+03:00",
   },
   {
@@ -117,7 +114,7 @@ const products = [
       text: "Yeşil",
       value: "yesil",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung2.jpeg`,
+    image: `images/samsung2.jpeg`,
     createdAt: "2020-10-23T00:00:00+03:00",
   },
   {
@@ -133,7 +130,7 @@ const products = [
       text: "Kırmızı",
       value: "kirmizi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung3.jpeg`,
+    image: `images/samsung3.jpeg`,
     createdAt: "2020-12-23T00:00:00+03:00",
   },
   {
@@ -149,7 +146,7 @@ const products = [
       text: "Siyah",
       value: "siyah",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung4.jpeg`,
+    image: `images/samsung4.jpeg`,
     createdAt: "2021-11-23T00:00:00+03:00",
   },
   {
@@ -165,7 +162,7 @@ const products = [
       text: "Yeşil",
       value: "yesil",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi1.jpeg`,
+    image: `images/xiaomi1.jpeg`,
     createdAt: "2021-11-11T00:00:00+03:00",
   },
   {
@@ -181,7 +178,7 @@ const products = [
       text: "Siyah",
       value: "siyah",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi2.jpeg`,
+    image: `images/xiaomi2.jpeg`,
     createdAt: "2021-08-23T00:00:00+03:00",
   },
   {
@@ -197,7 +194,7 @@ const products = [
       text: "Mor",
       value: "mor",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi3.jpeg`,
+    image: `images/xiaomi3.jpeg`,
     createdAt: "2021-06-15T00:00:00+03:00",
   },
   {
@@ -213,7 +210,7 @@ const products = [
       text: "Gri",
       value: "gri",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi4.jpeg`,
+    image: `images/xiaomi4.jpeg`,
     createdAt: "2021-07-15T00:00:00+03:00",
   },
   {
@@ -229,7 +226,7 @@ const products = [
       text: "Gümüş",
       value: "gumus",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/prod2.png`,
+    image: `images/prod2.png`,
     createdAt: "2020-12-10T00:00:00+03:00",
   },
   {
@@ -246,7 +243,7 @@ const products = [
       text: "Mavi",
       value: "mavi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung2.jpeg`,
+    image: `images/samsung2.jpeg`,
     createdAt: "2021-03-20T00:00:00+03:00",
   },
   {
@@ -262,7 +259,7 @@ const products = [
       text: "Kırmızı",
       value: "kirmizi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung4.jpeg`,
+    image: `images/samsung4.jpeg`,
     createdAt: "2021-10-05T00:00:00+03:00",
   },
   {
@@ -278,7 +275,7 @@ const products = [
       text: "Mavi",
       value: "mavi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/prod4.png`,
+    image: `images/prod4.png`,
     createdAt: "2020-11-20T00:00:00+03:00",
   },
   {
@@ -294,7 +291,7 @@ const products = [
       text: "Beyaz",
       value: "beyaz",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/huawei1.jpeg`,
+    image: `images/huawei1.jpeg`,
     createdAt: "2021-04-23T00:00:00+03:00",
   },
   {
@@ -311,7 +308,7 @@ const products = [
       text: "Siyah",
       value: "siyah",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung1.jpeg`,
+    image: `images/samsung1.jpeg`,
     createdAt: "2021-05-12T00:00:00+03:00",
   },
   {
@@ -328,7 +325,7 @@ const products = [
       text: "Yeşil",
       value: "yesil",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung2.jpeg`,
+    image: `images/samsung2.jpeg`,
     createdAt: "2020-11-23T00:00:00+03:00",
   },
   {
@@ -344,7 +341,7 @@ const products = [
       text: "Kırmızı",
       value: "kirmizi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung3.jpeg`,
+    image: `images/samsung3.jpeg`,
     createdAt: "2020-06-23T00:00:00+03:00",
   },
   {
@@ -360,7 +357,7 @@ const products = [
       text: "Siyah",
       value: "siyah",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung4.jpeg`,
+    image: `images/samsung4.jpeg`,
     createdAt: "2021-09-23T00:00:00+03:00",
   },
   {
@@ -376,7 +373,7 @@ const products = [
       text: "Yeşil",
       value: "yesil",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi1.jpeg`,
+    image: `images/xiaomi1.jpeg`,
     createdAt: "2021-09-15T00:00:00+03:00",
   },
   {
@@ -392,7 +389,7 @@ const products = [
       text: "Siyah",
       value: "siyah",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi2.jpeg`,
+    image: `images/xiaomi2.jpeg`,
     createdAt: "2021-11-01T00:00:00+03:00",
   },
   {
@@ -408,7 +405,7 @@ const products = [
       text: "Mor",
       value: "mor",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi3.jpeg`,
+    image: `images/xiaomi3.jpeg`,
     createdAt: "2021-07-15T00:00:00+03:00",
   },
   {
@@ -424,7 +421,7 @@ const products = [
       text: "Gri",
       value: "gri",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi4.jpeg`,
+    image: `images/xiaomi4.jpeg`,
     createdAt: "2021-08-15T00:00:00+03:00",
   },
   {
@@ -440,7 +437,7 @@ const products = [
       text: "Beyaz",
       value: "beyaz",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/huawei1.jpeg`,
+    image: `images/huawei1.jpeg`,
     createdAt: "2021-01-13T00:00:00+03:00",
   },
   {
@@ -457,7 +454,7 @@ const products = [
       text: "Mavi",
       value: "mavi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung1.jpeg`,
+    image: `images/samsung1.jpeg`,
     createdAt: "2021-05-23T00:00:00+03:00",
   },
   {
@@ -474,7 +471,7 @@ const products = [
       text: "Yeşil",
       value: "yesil",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung2.jpeg`,
+    image: `images/samsung2.jpeg`,
     createdAt: "2021-10-23T00:00:00+03:00",
   },
   {
@@ -490,7 +487,7 @@ const products = [
       text: "Kırmızı",
       value: "kirmizi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung3.jpeg`,
+    image: `images/samsung3.jpeg`,
     createdAt: "2020-11-22T00:00:00+03:00",
   },
   {
@@ -506,7 +503,7 @@ const products = [
       text: "Siyah",
       value: "siyah",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung4.jpeg`,
+    image: `images/samsung4.jpeg`,
     createdAt: "2021-09-23T00:00:00+03:00",
   },
   {
@@ -522,7 +519,7 @@ const products = [
       text: "Yeşil",
       value: "yesil",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi1.jpeg`,
+    image: `images/xiaomi1.jpeg`,
     createdAt: "2021-07-11T00:00:00+03:00",
   },
   {
@@ -538,7 +535,7 @@ const products = [
       text: "Siyah",
       value: "siyah",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi2.jpeg`,
+    image: `images/xiaomi2.jpeg`,
     createdAt: "2021-08-12T00:00:00+03:00",
   },
   {
@@ -554,7 +551,7 @@ const products = [
       text: "Mor",
       value: "mor",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi3.jpeg`,
+    image: `images/xiaomi3.jpeg`,
     createdAt: "2021-06-16T00:00:00+03:00",
   },
   {
@@ -570,7 +567,7 @@ const products = [
       text: "Gri",
       value: "gri",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/xiaomi4.jpeg`,
+    image: `images/xiaomi4.jpeg`,
     createdAt: "2021-07-16T00:00:00+03:00",
   },
   {
@@ -586,7 +583,7 @@ const products = [
       text: "Gümüş",
       value: "gumus",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/prod2.png`,
+    image: `images/prod2.png`,
     createdAt: "2020-12-24T00:00:00+03:00",
   },
   {
@@ -603,7 +600,7 @@ const products = [
       text: "Mavi",
       value: "mavi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung2.jpeg`,
+    image: `images/samsung2.jpeg`,
     createdAt: "2021-04-20T00:00:00+03:00",
   },
   {
@@ -619,7 +616,7 @@ const products = [
       text: "Kırmızı",
       value: "kirmizi",
     },
-    image: `${process.env.NODE_SERVER_URL}/images/samsung4.jpeg`,
+    image: `images/samsung4.jpeg`,
     createdAt: "2021-11-05T00:00:00+03:00",
   },
 ];
