@@ -10,14 +10,9 @@ jobs:
       - checkout
       - setup-remote-docker
 
-      - run: echo "lerna installing"
-      - run: sudo npm install -g lerna
       - run: sudo npm i
-      - run: lerna bootstrap
 
       # build, lint, test!
-      - run: npm run build
-      - run: npm run lint
       - run: npm run test
 
 workflows:
