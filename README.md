@@ -46,3 +46,13 @@ docker-compose up -d
 
 Projeyi <b>localhost:8080</b> 'de görüntülemelisiniz.
 Projeyi durdurmak için: `docker-compose down` ya da `docker stop hbcase-backend-app`
+
+> Uygulamanın frontend tarafının çalışabilmesi için, backend projesinin çalıştığı adresi (örn. http://localhost:3000) `.env` dosyasında `REACT_APP_API_ENDPOINT` değişkenine atamayı unutmayın.
+
+## Test
+
+Uygulama testlerini çalıştırmak için:
+
+```
+npm run test
+```
