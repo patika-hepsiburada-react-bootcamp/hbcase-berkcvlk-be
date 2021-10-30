@@ -1,13 +1,27 @@
-# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
-version: 2.1
-
+version: 2
 jobs:
   build:
     docker:
-      - image: redis
-      - image: circleci/node@14
+      # specify the version you desire here
+      - image: circleci/node:14
+    working_directory: ~/repo
+
     steps:
       - checkout
-      - run:
-        name: Run Tests
-        command: npm run test
+      - setup-remote-docker
+
+      - run: echo "lerna installing"
+      - run: sudo npm install -g lerna
+      - run: sudo npm i
+      - run: lerna bootstrap
+
+      # build, lint, test!
+      - run: npm run build
+      - run: npm run lint
+      - run: npm run test
+
+workflows:
+  version: 2
+  build_deploy:
+    jobs:
+      - build
