@@ -13,7 +13,7 @@ git clone https://github.com/patika-hepsiburada-react-bootcamp/hbcase-berkcvlk-b
 
 cd hbcase-berkcvlk-be
 npm install
-npm start
+npm run dev
 ```
 
 Adımları tamamladıktan sonra projeyi <b>localhost:3000</b> 'de görüntülemelisiniz.
@@ -24,28 +24,18 @@ Uygulamayı container üzerinde çalıştırmak için:
 
 #### Gereklilikler
 
-- Docker
-- Docker Compose (isteğe bağlı)
-
-<i>Docker ile</i>
-
-```
-// Projeyi klonladıktan sonra
-cd hbcase-berkcvlk-be
-
-docker build -t hbcase-backend-image .
-docker run --name hbcase-backend-app -d -p 8080:3000 hbcase-backend-image
-```
-
-<i>Docker Compose ile</i>
+- Docker Compose
 
 ```
 // Projeyi klonlayıp anadizine gittikten sonra
 docker-compose up -d
+
+// Çalışan image'i görüntülemek için
+docker ps
 ```
 
 Projeyi <b>localhost:8080</b> 'de görüntülemelisiniz.
-Projeyi durdurmak için: `docker-compose down` ya da `docker stop hbcase-backend-app`
+Projeyi durdurmak için: `docker-compose down`
 
 > Uygulamanın frontend tarafının çalışabilmesi için, backend projesinin çalıştığı adresi (örn. http://localhost:3000) `.env` dosyasında `REACT_APP_API_ENDPOINT` değişkenine atamayı unutmayın.
 
