@@ -43,6 +43,10 @@ Projeyi durdurmak için: `docker-compose down`
 
 ## Test
 
+### Coverage
+
+![coverage](./figures/testcoverage.png)
+
 Uygulama testlerini çalıştırmak için:
 
 ```
