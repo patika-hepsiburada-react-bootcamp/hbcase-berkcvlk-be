@@ -16,6 +16,8 @@ npm install
 npm run dev
 ```
 
+> Uygulamanın çalışabilmesi için makinenizde redis'in kurulu olması gerekmektedir.
+
 Adımları tamamladıktan sonra projeyi <b>localhost:3000</b> 'de görüntülemelisiniz.
 
 ## Kurulum - Docker
